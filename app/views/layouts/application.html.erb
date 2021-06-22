@@ -11,6 +11,10 @@
 
   <body>
     <% if user_signed_in? %> <!--ログイン中-->
+      <li> <!--あとで消す-->
+        <%= link_to '投稿フォーム', new_book_path %>
+      </li>
+
       <li>
         <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
       </li>
