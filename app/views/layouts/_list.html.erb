@@ -1,0 +1,30 @@
+<div class="profile-container col-md-3">
+  <h1>User info</h1>
+  <%= attachment_image_tag user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %>
+  
+  <table class="table">
+    <tbody>
+      <tr></tr>
+      <tr>
+       <th class="profile-name">
+         name
+        <th><%= current_user.name %></th>
+       </th>
+      </tr>
+      <tr>
+       <th class="profile-introduction">
+         introduction
+        <th><%= current_user.introduction %></th>
+       </th>
+      </tr>
+    </tbody>
+  </table>
+  
+  <div class="row">
+   <% if current_user.id %>
+    <p><%= link_to "プロフィール編集", edit_user_path(id: current_user), class: 'fas fa-user-cog' %></p>
+   <% end %>
+  </div>
+  
+</div>
+

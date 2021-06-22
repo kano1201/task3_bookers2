@@ -1,29 +1,6 @@
 <p><%= flash[:notice] %></p>
 
-
-<div class="profile-container col-md-3">
-  <h1>User info</h1>
-  <%= attachment_image_tag @user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %>
-  
-  <table class="table">
-    <tbody>
-      <tr></tr>
-      <tr>
-       <th class="profile-name">name <%= @user.name %></th>
-      </tr>
-      <tr>
-       <th class="profile-introduction">introduction <%= @user.introduction %> </th>
-      </tr>
-    </tbody>
-  </table>
-  
-  <div class="row">
-   <% if @user.id == current_user.id %>
-    <p><%= link_to "プロフィール編集", edit_user_path(@user)  %></p>
-   <% end %>
-  </div>
-  
-</div>
+<%= render 'layouts/list', user: @user, book: @book %>
 
 <div class="col-md-8 offset-md-1">
  <h1>Books</h1>
