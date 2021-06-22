@@ -1,5 +1,9 @@
 class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
+  
+  def after_sign_in_path_for(resource) #ログイン後Book投稿一覧画面に遷移する
+    books_path
+  end
 
   protected
 
