@@ -1,0 +1,24 @@
+<div class="profile-container">
+  <h1>User info</h1>
+  <p>ユーザー画像</p>
+  <p class="profile-name">name <%= @user.name %></p>
+  <p class="profile-introduction">introduction</p>
+
+</div>
+
+<tbody>
+<h1>Books</h1>
+
+<% @books.each do |book| %>
+<div>
+  <p>投稿ユーザー画像：</p>
+  <p>Title：</p>
+  <%= link_to book_path(book.id) do %>
+   <%= book.title %>
+  <% end %>
+  <p>Opinion：<%= book.body %></p>
+
+</div>
+<% end %>
+</tbody>
+<%= paginate @books %>
