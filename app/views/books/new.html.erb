@@ -1,4 +1,11 @@
 <h1>New Book</h1> <!--Book新規投稿画面-->
+<% if @book.errors.any? %>
+  <%= @book.errors.count %>errors
+  <% @book.errors.full_messages.each do |message| %>
+    <%= message %>
+  <% end %>
+<% end %>
+
 <%= form_with model: @book, local:true do |f| %>
   <h4>Title</h4>
   <%= f.text_field :title %>
