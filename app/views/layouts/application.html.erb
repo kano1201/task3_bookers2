@@ -11,24 +11,33 @@
 
   <body>
     <% if user_signed_in? %> <!--ログイン中-->
-      <li> <!--あとで消す-->
-        <%= link_to '投稿フォーム', new_book_path %>
+      <li>
+        <%= link_to 'Home', user_path(current_user.id) %>
+      </li>
+
+      <!--Users Users一覧-->
+      <li>
+        <%= link_to 'Books', books_path %>
       </li>
 
       <li>
-        <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-      </li>
-      
-      <li>
-        <%= link_to 'マイページ', user_path(current_user.id) %>
+        <%= link_to "logout", destroy_user_session_path, method: :delete %>
       </li>
 
     <% else %> <!--ログインしてない時-->
       <li>
-        <%= link_to "新規登録", new_user_registration_path %>
+        <%= link_to "Home", root_path %>
+      </li>
+
+      <li>
+        <%= link_to "About", about_path %>
+      </li>
+
+      <li>
+        <%= link_to "sign up", new_user_registration_path %>
       </li>
       <li>
-        <%= link_to "ログイン", new_user_session_path %>
+        <%= link_to "login", new_user_session_path %>
       </li>
     <% end %>
     <%= yield %>
