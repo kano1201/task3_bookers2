@@ -4,5 +4,7 @@
   <%= f.text_field :name, autofocus: true, id:"inputName", placeholder:"名前"%>
   <label for="inputImage">ProfileImage</label>
   <%= f.attachment_field :profile_image, placeholder: "プロフィール画像" %>
+  <label for="inputIntroduction">Introduction</label>
+  <%= f.text_area :introduction, class: 'form-control', id: 'user_introduction', placeholder:"紹介文"%>
   <%= f.submit "Update User" %>
 <% end %>
