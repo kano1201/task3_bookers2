@@ -8,5 +8,9 @@
   <% end %>
   <p>Opinion：<%= @book.body %></p>
 
+  <% if @book.user == current_user %>
+    <%= link_to "Destroy", book_path(@book), method: :delete %>
+  <% end %>
+
 
 </div>
