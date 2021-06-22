@@ -2,7 +2,7 @@
 <% @books.each do |book| %>
 <div>
 
-  <p>投稿ユーザー画像：</p>
+  <%= attachment_image_tag @user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %>
   <p>ユーザーネーム：<%= book.user.name %></p>
 
   <p>Title：</p>
