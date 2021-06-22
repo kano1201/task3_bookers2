@@ -5,6 +5,11 @@
   <%= f.text_field :title %>
   <h4>Opinion</h4>
   <%= f.text_field :body %>
- 
-  <%= f.submit 'Update ' %>
+
+  <%= f.submit 'Update Book' %>
 <% end %>
+
+<div>
+  <p class="edit_show_button"><%= link_to "Show", book_path(@book.id) %></p>
+  <p class="edit_back_button"><%= link_to "Back", '/books' %></p>
+</div>
