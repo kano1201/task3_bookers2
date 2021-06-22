@@ -1,3 +1,5 @@
+<p><%= flash[:notice] %></p>
+
 <h1>Book detail</h1> <!--Book詳細画面-->
 <div class="post-body">
   <%= attachment_image_tag @user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %>
@@ -13,5 +15,5 @@
     <%= link_to "Destroy", book_path(@book), method: :delete %>
   <% end %>
 
-
+  
 </div>
