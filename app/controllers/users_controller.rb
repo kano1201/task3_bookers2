@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+     before_action :correct_user,only: [:edit, :update, :destroy]
   def show
     @user = User.find(params[:id])
     @books = @user.books.page(params[:page]).reverse_order
@@ -7,6 +8,11 @@ class UsersController < ApplicationController
 
   def edit
    @user = User.find(params[:id])
+   if @user.id == current_user.id
+     render 'edit'
+   else
+      redirect_to user_path(@user.id)
+   end
   end
 
   def update
@@ -22,6 +28,7 @@ class UsersController < ApplicationController
 
   def index
      @users = User.all
+     @user = current_user
      @book = Book.new
   end
 
@@ -29,6 +36,13 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:name, :profile_image, :introduction)
+  end
+  def correct_user
+    user = User.find(params[:id])
+    redirect_to user_path(current_user) unless current_user?(user)
+  end
+  def current_user?(user)
+    user == current_user
   end
 
 end
