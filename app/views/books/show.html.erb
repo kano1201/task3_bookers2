@@ -1,4 +1,3 @@
-<p><%= flash[:notice] %></p>
 
 <div class="container px-5 px-sm-0">
  <div class="row">
@@ -15,6 +14,8 @@
      <tr>
        <td>
          <%= link_to (attachment_image_tag @user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg"), user_path(@user.id) %>
+         <br />
+         <%= link_to @user.name, user_path(@user.id) %>
        </td>
        <td>
          <%= link_to @books.title, book_path(@books.id) %>
@@ -23,7 +24,7 @@
 
        <% if @books.user == current_user %>
        <td><%= link_to "Edit", edit_book_path(@books), class: 'btn btn-sm btn-success' %></td>
-       <td><%= link_to "Destroy", book_path(@books), class: 'btn btn-sm btn-danger', method: :delete, "data-confirm" => "本当に消しますか?" %></td>
+       <td><%= link_to "Destroy", book_path(@books), method: :delete, "data-confirm" => "本当に消しますか?", class: 'btn btn-sm btn-danger' %></td>
        <% end %>
      </tr>
    </tbody>
